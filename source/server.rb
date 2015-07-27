@@ -1,7 +1,7 @@
 require 'socket'
 
-STUDENT_1 = ""
-STUDENT_2 = ""
+STUDENT_1 = "Blanche Hollingshead"
+STUDENT_2 = "Nicholas Kincaid"
 
 raise "Fill in your names!" if STUDENT_1.empty? || STUDENT_2.empty?
 
@@ -10,17 +10,31 @@ raise "Fill in your names!" if STUDENT_1.empty? || STUDENT_2.empty?
 # exchanges information with the client
 server = TCPServer.new(2000) # Start a server that's bound to port 2000 of this machine
 
+
+responses = {
+  "RED HOT" => "H-O-T!",
+  "DO IT AGAIN" => "Go, Fight, Win",
+  "2 BITS" => "Holler!",
+  "STOMP YOUR FEET" => "STOMP!"
+}
+
+
 loop do
   # `server.accept` causes our program to pause here for a client to connect.
   client = server.accept
   # The program resumes as soon as a client connects
 
+  incoming_msg = client.gets.chomp
+  converted_msg = responses[incoming_msg]
+
   # Send some logging information to the terminal to mention that we have a new connection
   puts "A client has connected"
 
   # Send a string to the client that connected.
-  client.puts "Greetings from #{STUDENT_1} and #{STUDENT_2}'s TCP server"
+  client.puts "Hey, get out of here! Greetings from #{STUDENT_1} and #{STUDENT_2}'s TCP server 10.1.10.57"
   client.puts "Time is #{Time.now}"
+  client.puts "Blanche needs more coffee and an additional coffee."
+  client.puts "#{converted_msg}"
 
   # Send some logging information to the terminal again
   puts "We sent a greeting and the time. Closing connection."
