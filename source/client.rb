@@ -7,17 +7,31 @@ require 'socket'
 
 server_connection = TCPSocket.new('127.0.0.1', 2000)
 
-# Read a line from the server
-line_1 = server_connection.gets
+message = ARGV.join(" ")
+server_connection.puts message
+response = server_connection.gets
+puts response
 
-# Read a second line from the server
-line_2 = server_connection.gets
+# # Read a line from the server
+# line_1 = server_connection.gets
+
+# # Read a second line from the server
+# line_2 = server_connection.gets
+# line_3 = server_connection.gets
 
 #Log out the first line we received from the server
-puts "Line 1: #{line_1}"
+# puts "Line 1: #{line_1}"
 
-#Log out the second line we received from the server
-puts "Line 2: #{line_2}"
+# #Log out the second line we received from the server
+# puts "Line 2: #{line_2}"
+# puts "Line 3: #{line_3}"
+
+# server_connection.puts ARGV[0]
+# colah = server_connection.gets
+# puts "Here is your favorite colah."
+# puts colah
+
+# puts server_connection.favorite_color.upcase
 
 #Close the connection if we're done
 server_connection.close
