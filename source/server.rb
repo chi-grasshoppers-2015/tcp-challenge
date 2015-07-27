@@ -1,7 +1,7 @@
 require 'socket'
 
-STUDENT_1 = ""
-STUDENT_2 = ""
+STUDENT_1 = "Josh"
+STUDENT_2 = "Matt"
 
 raise "Fill in your names!" if STUDENT_1.empty? || STUDENT_2.empty?
 
@@ -21,6 +21,7 @@ loop do
   # Send a string to the client that connected.
   client.puts "Greetings from #{STUDENT_1} and #{STUDENT_2}'s TCP server"
   client.puts "Time is #{Time.now}"
+  client.puts "We are legion."
 
   # Send some logging information to the terminal again
   puts "We sent a greeting and the time. Closing connection."

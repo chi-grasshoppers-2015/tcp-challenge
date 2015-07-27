@@ -13,11 +13,15 @@ line_1 = server_connection.gets
 # Read a second line from the server
 line_2 = server_connection.gets
 
+line_3 = server_connection.gets
+
 #Log out the first line we received from the server
 puts "Line 1: #{line_1}"
 
 #Log out the second line we received from the server
 puts "Line 2: #{line_2}"
+
+puts "Line 3: #{line_3}"
 
 #Close the connection if we're done
 server_connection.close
